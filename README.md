@@ -8,10 +8,10 @@ Codex, Claude Code, OMP(oh-my-pi)에서 쓰는 재사용 가능한 초기화 템
 
 ## 빠른 시작
 
-**대상 저장소에서** 코딩 에이전트를 열고 아래 프롬프트를 붙여넣으세요. `<템플릿 소스>`에는 이 템플릿 저장소의 clone URL이나 로컬 checkout 경로를 넣습니다(대상 저장소 URL 아님).
+**대상 저장소에서** 코딩 에이전트를 열고 아래 프롬프트를 그대로 붙여넣으세요:
 
 ```text
-<템플릿 소스>의 .agents/skills/init-workflow/SKILL.md를 읽고 그대로 따라서 이 저장소에 워크플로를 초기화해줘. 템플릿은 이 저장소 밖 임시 위치에서 읽어.
+https://github.com/kdm1jkm/vibe-workflow.git 의 .agents/skills/init-workflow/SKILL.md를 읽고 그대로 따라서 이 저장소에 워크플로를 초기화해줘. 템플릿은 이 저장소 밖 임시 위치에서 읽어.
 ```
 
 나머지는 [init-workflow](.agents/skills/init-workflow/SKILL.md)가 처리합니다. 대상 저장소 분석(스택, 검증 명령, 기존 에이전트 설정, CI/hooks, 라벨, 언어), 미정 정책 7개(priority 라벨, merge 전략, MCP, 작업 파일 보존, 충돌 해결, 커밋 정책, 언어)를 한 번에 묻기, 선택적 병합 설치, 검증, 보고 후 멈춤까지입니다.
