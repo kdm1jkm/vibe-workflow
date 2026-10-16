@@ -8,60 +8,13 @@ Codex, Claude Code, OMP(oh-my-pi)에서 쓰는 재사용 가능한 초기화 템
 
 ## 빠른 시작
 
-**대상 저장소에서** 코딩 에이전트를 열고 아래 프롬프트를 붙여넣으세요. 첫 줄에는 이 템플릿 저장소의 실제 clone URL이나 로컬 checkout 경로를 넣습니다. 대상 저장소 URL이 아니라 템플릿 URL입니다. 게시 전이라면 로컬 checkout 경로를 쓰면 됩니다.
+**대상 저장소에서** 코딩 에이전트를 열고 아래 프롬프트를 붙여넣으세요. `<템플릿 소스>`에는 이 템플릿 저장소의 clone URL이나 로컬 checkout 경로를 넣습니다(대상 저장소 URL 아님).
 
 ```text
-템플릿 소스: <실제 템플릿 Git clone URL 또는 로컬 checkout 절대 경로>
-
-위 템플릿 소스로 현재 대상(TARGET) 저장소에 Repository-native Agentic
-Development Workflow를 초기화해줘. 대상 저장소 위에 clone하지 마.
-소스가 URL이면 별도 임시 디렉터리에
-`git clone <템플릿-소스> <임시-디렉터리>`로 받고, 로컬 경로면 그 checkout을
-직접 살펴봐. 소스의 AGENTS.md를 읽고, 연결된
-.agents/skills/init-workflow/SKILL.md와 참조된 모든 계약을 읽은 다음
-Minimal Core + Auto-detect, Selective Merge 방식으로 그 스킬을 실행해.
-
-대상 저장소의 스택/매니페스트, docs, AGENTS.md, CLAUDE.md, .agents/,
-.claude/, .omp/, CI 워크플로, hooks, Git/worktree, 라벨, merge 설정, 커밋
-규칙, 최근 Issue/PR/커밋에서 주로 쓰는 언어를 조사해. 기존
-test/lint/typecheck/build 명령과 필수 CI 체크를 정확히 찾아내고, 없는
-툴체인을 만들어내지 마. 프로젝트 지침, CI, hooks, 사용자 변경, 비밀정보는
-보존해. 템플릿의 README나 Git 히스토리를 대상 저장소에 복사하지 마.
-
-아직 정해지지 않은 정책은 선택지와 트레이드오프를 붙여 한 번에 물어봐.
-대상 저장소에 이미 명확히 정해진 항목은 그대로 따라:
-1. Priority 라벨: priority:high/medium/low vs 기존 P0/P1/P2.
-2. 사람이 쓰는 PR merge 전략: squash vs rebase vs merge (저장소 허용 범위 안에서).
-3. MCP: 기본은 없음. 꼭 필요한 기능이 확인된 경우에만 권한, 자격 증명,
-   CLI 대안을 설명하고 설치 전에 제안.
-4. 작업 파일 보존: keep-in-git(이식성), clean-before-pass(오래 남길 내용을
-   옮긴 뒤 diff 정리), gitignored-local(로컬 파일은 worktree 간에 공유되지
-   않으므로 GitHub에 handoff 미러 필요).
-5. 기존 에이전트 지침/스킬/CI/hooks와의 실제 충돌: 기본은 보존하고 선택적
-   병합. 교체나 정책 변경은 승인 후에만.
-6. 초기화 커밋 정책: unstaged로 두기, 선택한 파일만 stage, 기존/합의된 규칙의
-   원자적 커밋. 관련 없는 변경은 제외.
-7. 언어 정책: 한국어 기본 vs 기존 Issue/PR/커밋에서 일관되게 쓰는 언어 vs
-   영어. 제목, 라벨, 경로, 명령은 항상 정의된 그대로.
-필요한 선택을 기다려. 템플릿 기본값을 말없이 동의로 간주하지 마.
-
-평평한 Task/Capability Skills와 워크플로 레퍼런스를 .agents/에 설치하고,
-승인되거나 상속된 정책과 감지된 명령으로 대상 config를 작성해. 최소
-AGENTS.md 인덱스를 선택적으로 병합하고, CLAUDE.md에는 프로젝트 지침을
-지우지 말고 @AGENTS.md를 추가(중복 없이)해. 기존 CI/hooks는 보존해.
-권한과 접근이 있으면 agent:working, agent:passed, agent:blocked와 선택한
-priority 라벨이 GitHub 원격에 있도록 해. MCP는 기존 기능부터 평가하고,
-전역 설정 변경이나 승인 없는 MCP 설치는 하지 마.
-
-로컬 링크, 스킬 frontmatter/검색, Claude import를 검증해. 설치된
-status/selection 흐름을 읽기 전용으로 실행해 보되, 가능하면 실제 데이터,
-아니면 fixture임을 명시해서 써. 사용자 선택 대기가 지켜지는지 확인해.
-사용 가능한 에이전트에서 스킬 검색을 확인하고, 없는 에이전트는 기록해.
-대상 저장소에 맞는 검증을 실행하고 Git 상태를 확인한 뒤 선택한 커밋 정책을
-따라. 실제로 실행한 검사, 병합/보존한 파일, 확정된 정책, 원격 접근 전제조건을
-보고해. 내가 만든 임시 checkout만 정리해. 그리고 멈춰. Issue를 자동으로
-시작하거나 PR을 merge하지 마.
+<템플릿 소스>의 .agents/skills/init-workflow/SKILL.md를 읽고 그대로 따라서 이 저장소에 워크플로를 초기화해줘. 템플릿은 이 저장소 밖 임시 위치에서 읽어.
 ```
+
+나머지는 [init-workflow](.agents/skills/init-workflow/SKILL.md)가 처리합니다. 대상 저장소 분석(스택, 검증 명령, 기존 에이전트 설정, CI/hooks, 라벨, 언어), 미정 정책 7개(priority 라벨, merge 전략, MCP, 작업 파일 보존, 충돌 해결, 커밋 정책, 언어)를 한 번에 묻기, 선택적 병합 설치, 검증, 보고 후 멈춤까지입니다.
 
 비어 있는 **새** 저장소라면 이 저장소를 GitHub template으로 써서 만든 다음, 그 저장소에서 초기화 스킬을 실행해 실제 정책과 스택을 감지하게 해도 됩니다. 함께 들어 있는 config 기본값을 초기화가 끝난 상태로 보면 안 됩니다.
 
@@ -146,7 +99,7 @@ Codex와 OMP는 `AGENTS.md`를 읽고, 지원하는 경우 repo-local `.agents/s
 
 | 시나리오 | 경로와 확인할 점 |
 | --- | --- |
-| A: 기존 저장소 초기화 | 프롬프트 → 인덱스 → init. 스택/명령과 언어 감지, 에이전트 규칙·CI·hooks 보존, 정책 7개 결정, 선택적 병합, 커밋 정책 준수, 멈춤 |
+| A: 기존 저장소 초기화 | 프롬프트 → init 스킬. 스택/명령과 언어 감지, 에이전트 규칙·CI·hooks 보존, 정책 7개 결정, 선택적 병합, 커밋 정책 준수, 멈춤 |
 | B: 다음 작업 찾기 | 인덱스 → selection → GitHub/model. 상태/의존성/draft/연결 충돌 제외, PR 먼저 그다음 priority/FIFO, 범주 분리, 선택 대기 |
 | C: 원본 Issue부터 완료까지 | Triage → Spec → 구현 → 리뷰. 본문 보존, 모호함 해소, 필요 시 스냅샷, TDD와 스모크, K 제한, 진실 우선 handoff 재구성, PASS 두 조건 모두 충족 또는 claim 해제 후 handoff, 멈춤 |
 | D: PASS 후 재작업 | 새 코멘트만으로는 PASS 유지. 사람이 라벨 제거 → PR이 Issue보다 앞서 후보가 됨 → 선택된 리뷰어가 새 Issue/PR 피드백을 읽고 K 안에서 수정, 최종 head 근거와 독립 리뷰를 새로 확보, PASS 재부여 후 멈춤 |
