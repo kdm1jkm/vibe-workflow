@@ -11,7 +11,7 @@ Read the template's [configuration](../../config.md), [workflow model](../../ref
 ## 1. Analyze without overwriting
 
 - MUST identify source/template and target roots separately. Obtain the user-provided template URL or local source path, inspect its contents, and use a temporary checkout outside the target if needed. MUST NOT clone over the target, copy template Git history, or replace its README with the template's README.
-- MUST inspect target tree, existing `AGENTS.md`, `CLAUDE.md`, `.agents/`, `.claude/`, `.omp/`, project docs, CI workflows, hooks including `core.hooksPath`, manifests, Git status/branches/worktrees, remotes, and commit conventions. Preserve user changes and existing security rules. Never execute untrusted hooks/scripts merely for detection.
+- MUST inspect target tree, existing `AGENTS.md`, `CLAUDE.md`, `.agents/`, `.claude/`, `.omp/`, project docs, CI workflows, hooks including `core.hooksPath`, manifests, Git status/branches/worktrees, remotes, commit conventions, and the language predominantly used in recent Issues/PRs/commits. Preserve user changes and existing security rules. Never execute untrusted hooks/scripts merely for detection.
 - MUST identify the stack from actual manifests (such as `package.json`, `pyproject.toml`, `Cargo.toml`, `go.mod`, `Makefile`) and CI, including monorepo working directories. Record exact existing test/lint/typecheck/build commands, prerequisites, required CI checks, and explicitly inapplicable checks. Do not invent commands from stack names.
 - MUST inspect existing GitHub labels and allowed merge policies if accessible (`gh label list`, repository settings/native equivalent); use complete pagination. If no remote/auth exists, complete reachable local installation and report remote work as pending, not done.
 
@@ -31,13 +31,14 @@ MUST present one batched question set, skipping decisions already unambiguously 
 | Task file retention | `keep-in-git` (portable history), `clean-before-pass` (clean diff, promote durable context), `gitignored-local` (less repository noise, GitHub mirror required for cross-worktree handoff) |
 | Conflict resolution | preserve existing rules and link/merge non-conflicting additions vs explicitly approved replacement; list exact conflicting instructions, skill paths, CI/hooks and consequences; never silently override |
 | Initialization commit policy | leave unstaged (user inspects), stage only initialization paths (user commits), create atomic commit using existing convention or an agreed message; never include unrelated changes |
+| Language policy | Korean default (user-facing replies, Issue/PR comments, snapshot content, PR body, task files) vs the language consistently used by existing target Issues/PRs/commits (continuity for other contributors) vs English (wider audience); headings, labels, paths and commands always stay as defined |
 
 MUST await required decisions before conflicting mutations. No conflict means report none, not manufacture a question. Never weaken CI/hooks to install a workflow.
 
 ## 4. Selective installation
 
 1. MUST copy canonical flat skills and references into target `.agents/`, preserving unrelated files. For a colliding skill or rule, compare semantics, deduplicate into one source, and apply approved conflict resolution; do not overwrite just because names match. No runtime adapter or template-sync dependency may be introduced.
-2. MUST write target `.agents/config.md` with confirmed/inherited policies, fixed state labels, ordered priority labels, K, retention, exact verification commands/applicability, approved MCPs, and commit policy. Create the task directory marker if absent. For local-only retention ignore only numeric task Markdown files, not all `.agents/` or all skills.
+2. MUST write target `.agents/config.md` with confirmed/inherited policies, fixed state labels, ordered priority labels, K, language policy, retention, exact verification commands/applicability, approved MCPs, and commit policy. Create the task directory marker if absent. For local-only retention ignore only numeric task Markdown files, not all `.agents/` or all skills.
 3. MUST create/merge a minimal `AGENTS.md` index linking Task and Capability Skills, config, references, task path and existing project docs. Preserve existing project-specific instructions; moving long prose to a linked existing/approved project document requires preserving its meaning, not deleting it.
 4. MUST create a one-line `CLAUDE.md` import `@AGENTS.md` if absent; otherwise append/deduplicate the import while preserving project instructions. Native Claude skill discovery bridges are optional and require an actual need; linked reading is sufficient. MUST NOT change global agent configuration.
 5. MUST preserve existing CI and hooks unless the user explicitly approved a necessary change. Existing verification policy remains authoritative; record true incompatibilities instead of bypassing checks.
@@ -54,6 +55,6 @@ MUST run target verification appropriate to actual changed files and inspect `gi
 ## Self-Check
 
 - Stack/commands, existing agent settings, CI/hooks and labels inspected without overwriting?
-- Six decision categories resolved or explicitly inherited/not applicable, MCP access approved?
+- Seven decision categories (including language) resolved or explicitly inherited/not applicable, MCP access approved?
 - Selective installation preserves target rules, all paths resolve, commit policy honored?
 - Live vs fixture and unavailable agents/remotes honestly reported; stopped after initialization?

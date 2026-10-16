@@ -30,7 +30,7 @@ MUST run applicable test/lint/typecheck/build commands and record actual outcome
 
 ## 6. Create or synchronize PR
 
-MUST push the intended branch and create/update the PR with `Closes #<issue-number>` (or qualified cross-repository closing reference when appropriate), summary, key design decisions, verification results and honest remaining issues/limitations. MUST link important new Issue comments and summarize their impact. Claim a newly created PR with this session's working label. Failed push/PR creation is recorded as incomplete remote state, not success. Draft PRs may preserve incomplete handoff but are not actionable queue candidates until explicitly made ready.
+MUST push the intended branch and create/update the PR with `Closes #<issue-number>` (or qualified cross-repository closing reference when appropriate), summary, key design decisions, verification results and honest remaining issues/limitations; write the PR title/body in the configured language. MUST link important new Issue comments and summarize their impact. Claim a newly created PR with this session's working label. Failed push/PR creation is recorded as incomplete remote state, not success. Draft PRs may preserve incomplete handoff but are not actionable queue candidates until explicitly made ready.
 
 ## 7. Review and stop
 

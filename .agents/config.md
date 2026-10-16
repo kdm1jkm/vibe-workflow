@@ -22,6 +22,21 @@ Default: `squash`. Alternatives: `rebase` (linear individual commits), `merge` (
 
 `K = 3` repair iterations per session across local failures, CI failures, and review findings. Initial verification is not a repair. Do not reset the budget on tool, skill, or phase transitions. At exhaustion record evidence, release the claim, hand off, and stop.
 
+## Language policy
+
+Default: Korean (`ko`) for human-facing output.
+
+| Output | Language |
+| --- | --- |
+| Replies to the user, questions, reports | Korean |
+| Issue/PR comments, Canonical Spec Snapshot content, PR title/body | Korean |
+| `.agents/tasks/<issue-number>.md` content | Korean |
+| Commit messages | Follow the target repository convention; Korean if none is detected and the user did not choose otherwise |
+
+Fixed regardless of language: snapshot and task-file Markdown headings defined in the [workflow model](reference/workflow-model.md) (for example `## Canonical Spec Snapshot`, `### Acceptance Criteria`), label names, branch names, file paths, commands, code identifiers, and quoted logs/errors. Agents locate artifacts by these exact headings; translating them breaks discovery. Skill contracts stay in English for stable agent interpretation.
+
+Initialization MAY propose a different default when the target repository's existing Issues/PRs/commits consistently use another language; the user's choice is recorded here.
+
 ## Task file retention policy
 
 Default: `keep-in-git`.

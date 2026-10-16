@@ -19,7 +19,7 @@ Read [workflow model](../../reference/workflow-model.md) and [configuration](../
 
 1. MUST re-fetch live Issue and linked PR state immediately before claiming selected work. A cached queue is not authorization. Explicit selection does not bypass dependency or ownership checks.
 2. MUST ask the user before reclaiming another session's possibly stale `agent:working`. Age or inactivity MAY be shown as evidence, never treated as permission. MUST NOT remove another agent's live claim.
-3. MUST publish session/owner, timestamp, and intended work in an Issue/PR claim comment, then add `agent:working` to the Issue and any linked PR (`gh issue edit` / `gh pr edit --add-label` or equivalent). A linked PR created later MUST also receive this session's claim.
+3. MUST publish session/owner, timestamp, and intended work in an Issue/PR claim comment written in the configured language, then add `agent:working` to the Issue and any linked PR (`gh issue edit` / `gh pr edit --add-label` or equivalent). A linked PR created later MUST also receive this session's claim.
 4. MUST re-fetch labels/comments after claiming to detect races. GitHub label updates are not compare-and-swap locks. If another session also claimed, stop and coordinate; on partial failure release only this session's claims and record the failure. Do not continue claiming success without remote confirmation.
 5. A continuing authorized session MAY retain its own claim across skills; MUST NOT mistake its own claim for stale third-party ownership or reacquire it as a new task.
 

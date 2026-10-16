@@ -20,7 +20,7 @@ Read [workflow model](../../reference/workflow-model.md) for snapshot and DAG fo
 - MUST ask only when ambiguity materially changes scope, core behavior, or user-visible outcomes. Present concise options with trade-offs; await the decision rather than choosing a new product direction.
 - MAY clarify wording, add faithful edge cases, refine checkable Acceptance Criteria, and document missing technical constraints without changing original intent.
 - MUST obtain user approval before changing functional scope/core behavior, deleting requirements or prerequisites, or altering original intent. MUST NOT weaken a spec to fit a broken/partial implementation or remove valid tests to manufacture completion.
-- MUST publish a new snapshot when consolidation is needed, using the model's exact header and required sections, revision/time, superseded reference, and explicit approved changes. Open Questions MUST be `None` before implementation is considered ready; unresolved material questions require handoff/blocking.
+- MUST publish a new snapshot when consolidation is needed, using the model's exact header and required sections, revision/time, superseded reference, and explicit approved changes. MUST write section content in the configured language while keeping the model's headings verbatim. Open Questions MUST be `None` before implementation is considered ready; unresolved material questions require handoff/blocking.
 
 ## Adaptive issue splitting
 

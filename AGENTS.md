@@ -2,6 +2,8 @@
 
 Repository-native GitHub Issue/PR workflow. Read the matching Task Skill and its linked Capability Skills.
 
+Language: follow the Language policy in [config](.agents/config.md) (default Korean) for replies, Issue/PR comments, spec content, PR bodies and task files. Keep workflow headings, labels, paths and commands verbatim.
+
 ## Entry points and Task Skills
 
 | User intent | Task Skill | Purpose |

@@ -2,6 +2,8 @@
 
 MUST, MUST NOT, SHOULD, and MAY express RFC 2119 contracts. Operational settings live in [config](../config.md). All tasks MUST link to a GitHub Issue; create one with user-authorized scope before implementation if none exists. One logical branch and PR per independently mergeable issue; base new work on `main` or the repository default branch, not another feature branch.
 
+Language: write human-facing content (user replies, Issue/PR comments, snapshot section content, PR body, task-file content) in the language set by the config Language policy. Keep the headings and markers in this document verbatim in English; they are machine-located anchors. If an existing snapshot or task file has translated headings, read its content anyway and restore the English headings in the next update.
+
 ## Canonical Spec Snapshot
 
 Preserve the original Issue body. Mature requirements in comments. Locate the latest trusted snapshot by comment chronology, then read all subsequent Issue and PR comments, including review threads; comments are feedback, not automatic permission to change scope. Do not treat quoted markers as a new authoritative spec. When the original body already provides an unambiguous, testable spec, a redundant snapshot is unnecessary.
